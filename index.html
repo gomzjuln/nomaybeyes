@@ -33,6 +33,25 @@
         },
       };
     </script>
+
+    <style type="text/tailwindcss">
+      @theme {
+        --animate-blink: blink 1.8s ease-in-out infinite;
+        --animate-keypress: keypress 1.4s ease-out forwards;
+
+        @keyframes blink {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0; }
+        }
+
+        @keyframes keypress {
+          0% { transform: translateY(-2px); opacity: 0; }
+          20% { transform: translateY(0); opacity: 1; }
+          70% { opacity: 1; }
+          100% { opacity: 0; }
+        }
+      }
+    </style>
   </head>
 
   <!-- Google tag (gtag.js) -->
@@ -65,18 +84,17 @@
       <p class="text-base leading-relaxed sm:text-2xl">
         <span id="typed"></span>
         <span
-          class="cursor ml-1 inline-block h-[0.85em] w-[0.45em] animate-[blink_1s_step-end_infinite] bg-neutral-900 align-middle"
+          class="cursor ml-1 inline-block h-[0.85em] w-[0.45em] animate-blink bg-neutral-900 align-middle"
         ></span>
+        <span
+          id="enter-key"
+          class="ml-2 hidden items-center gap-1 align-middle text-[0.6em] font-medium tracking-wide text-neutral-900"
+        >
+          <span class="text-[1.2em] leading-none">&#9166;</span>
+          <span>Enter</span>
+        </span>
       </p>
     </main>
-
-    <style>
-      @keyframes blink {
-        50% {
-          opacity: 0;
-        }
-      }
-    </style>
 
     <script>
       const phrases = [
@@ -88,6 +106,7 @@
 
       const typed = document.getElementById("typed");
       const cursor = document.querySelector(".cursor");
+      const enterKey = document.getElementById("enter-key");
 
       let phraseIndex = 0;
       let charIndex = 0;
@@ -104,13 +123,23 @@
           typed.textContent = current.substring(0, charIndex);
         }
 
-        let speed = deleting ? 35 : 65;
+        const jitter = (Math.random() - 0.5) * 30;
+        let speed = deleting ? 28 : 70 + jitter;
 
         if (!deleting && charIndex === current.length) {
           if (phraseIndex === phrases.length - 1) {
+            const enterDelay = 500;
+            const enterDuration = 1400;
+
             setTimeout(() => {
               cursor.style.display = "none";
-            }, 500);
+              enterKey.classList.remove("hidden");
+              enterKey.classList.add("inline-flex", "animate-keypress");
+            }, enterDelay);
+
+            setTimeout(() => {
+              enterKey.style.display = "none";
+            }, enterDelay + enterDuration);
 
             return;
           }
