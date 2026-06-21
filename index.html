@@ -40,15 +40,30 @@
         --animate-keypress: keypress 1.4s ease-out forwards;
 
         @keyframes blink {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0; }
+          0%,
+          100% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0;
+          }
         }
 
         @keyframes keypress {
-          0% { transform: translateY(-2px); opacity: 0; }
-          20% { transform: translateY(0); opacity: 1; }
-          70% { opacity: 1; }
-          100% { opacity: 0; }
+          0% {
+            transform: translateY(-2px);
+            opacity: 0;
+          }
+          20% {
+            transform: translateY(0);
+            opacity: 1;
+          }
+          70% {
+            opacity: 1;
+          }
+          100% {
+            opacity: 0;
+          }
         }
       }
     </style>
@@ -70,7 +85,7 @@
   </script>
 
   <body
-    class="flex min-h-screen items-center justify-center overflow-hidden bg-[#efedea] p-4 font-fira text-neutral-900 sm:p-6"
+    class="flex min-h-screen items-center justify-center overflow-hidden p-4 font-fira text-neutral-900 sm:p-6"
   >
     <main
       class="flex flex-col gap-5 w-full max-w-3xl px-6 py-10 sm:px-12 sm:py-16 text-center"
