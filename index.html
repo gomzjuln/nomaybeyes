@@ -1,55 +1,70 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>No Maybe Yes</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>No Maybe Yes</title>
 
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
 
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              fira: [
+                '"Fira Code"',
+                "ui-monospace",
+                "SFMono-Regular",
+                "Menlo",
+                "Monaco",
+                "Consolas",
+                "monospace",
+              ],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-6V0KQLF8N2"
+  ></script>
   <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            fira: ['"Fira Code"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace']
-          }
-        }
-      }
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
     }
+    gtag("js", new Date());
+
+    gtag("config", "G-6V0KQLF8N2");
   </script>
-</head>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6V0KQLF8N2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <body
+    class="flex min-h-screen items-center justify-center overflow-hidden bg-[#efedea] p-4 font-fira text-neutral-900 sm:p-6"
+  >
+    <main
+      class="flex flex-col gap-5 w-full max-w-3xl px-6 py-10 sm:px-12 sm:py-16 text-center"
+    >
+      <h1
+        class="whitespace-nowrap text-5xl font-extrabold leading-none tracking-tighter sm:text-7xl md:text-8xl"
+      >
+        No. Maybe, Yes.
+      </h1>
 
-  gtag('config', 'G-6V0KQLF8N2');
-</script>
-
-<body class="flex min-h-screen items-center justify-center overflow-hidden bg-neutral-50 p-4 font-fira text-neutral-900 sm:p-6">
-  <main class="flex flex-col gap-10 w-full max-w-3xl bg-neutral-50 px-6 py-10 sm:px-12 sm:py-16 text-center">
-    <div class="space-y-3">
-    <h1 class="whitespace-nowrap text-5xl font-extrabold leading-none tracking-tighter sm:text-7xl md:text-8xl">
-      No. Maybe, Yes.
-    </h1>
-
-    <p class="text-base leading-relaxed sm:text-xl">
-      A Software Exploration Lab.
-    </p>
-    </div>
-
-    <div class="text-sm leading-relaxed text-neutral-500 sm:text-base" aria-label="Site status">
-      <p>Check back later.</p>
-      <p>We're somewhere between <span class="italic">maybe</span> and <span class="italic">yes</span>.</p>
-    </div>
-  </main>
-</body>
+      <p class="text-base leading-relaxed sm:text-2xl">
+        A Software Exploration Lab.
+      </p>
+    </main>
+  </body>
 </html>
